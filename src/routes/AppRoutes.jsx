@@ -7,12 +7,18 @@ import Customers from "../pages/Customers";
 import Settings from "../pages/Settings";
 import OrderDetail from "../pages/OrderDetail";
 import Login from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
+import ProtectedRoute from "../authentication/ProtectedRoutes";
 
 export default function AppRoutes(){
     const routes = useRoutes([
         {
             path: '/',
-            element: <AdminLayout/>,
+            element: (
+                <ProtectedRoute>
+                  <AdminLayout />
+                </ProtectedRoute>
+              ),
             children:[
                 {index: true , element: <Home/>},
                 {path:'/orders' , element: <Orders/>},
@@ -24,6 +30,7 @@ export default function AppRoutes(){
         },
         
         {path: '/sign-in' , element: <Login/>},
+        {path: '/sign-up' , element: <SignUp/>},
 
     ]);
     return routes;

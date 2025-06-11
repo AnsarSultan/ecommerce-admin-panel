@@ -1,4 +1,7 @@
 import { NavLink } from "react-router";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase"; 
+import { useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   ShoppingCart,
@@ -10,6 +13,16 @@ import {
 import IconImg from '../../public/Logo.png'
 
 export default function Sidebar({ isOpen }) {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/sign-up"); // redirect to sign-up or sign-in
+    } catch (error) {
+      alert("Error logging out: " + error.message);
+    }
+  };
   return (
     <aside
       className={`hidden h-screen bg-white shadow-xl lg:flex flex-col gap-3 px-5 pt-10 text-md font-semibold
@@ -79,16 +92,15 @@ export default function Sidebar({ isOpen }) {
         {isOpen && <span className="hidden lg:flex">Settings</span>}
       </NavLink>
       <NavLink
-        to="/sign-in"
         className={({ isActive }) =>
-          `flex items-center gap-2 py-3 px-4 rounded-lg hover:bg-stone-200 ${
-            isActive ? "bg-stone-200" : " "
-          }`
-        }
+        `flex items-center gap-2 py-3 px-4 rounded-lg hover:bg-stone-200
+        }`
+      }
+        onClick={handleLogout} 
       >
         <LogOut size={20} />{" "}
         {isOpen && <span className="hidden lg:flex">Logout</span>}
-      </NavLink>
+        </NavLink>
     </aside>
   );
 }

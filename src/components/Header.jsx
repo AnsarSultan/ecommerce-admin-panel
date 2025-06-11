@@ -11,6 +11,9 @@ import {
   LogOut,
 } from "lucide-react";
 import { NavLink } from "react-router";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Header({
   toggleSidebar,
@@ -18,6 +21,16 @@ export default function Header({
   NavbarOpen,
   closeNavbar,
 }) {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      navigate("/sign-up"); // redirect to sign-up or sign-in
+    } catch (error) {
+      alert("Error logging out: " + error.message);
+    }
+  };
   return (
     <header className="lg:p-4 flex justify-between items-center relative p-3">
       <div className="flex gap-3 items-center">
@@ -52,12 +65,11 @@ export default function Header({
           <NavLink
             to="/"
             onClick={closeNavbar}
-            
             className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+              `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
+                isActive ? "bg-stone-200" : ""
+              }`
+            }
           >
             {" "}
             <LayoutDashboard size={20} />
@@ -67,10 +79,10 @@ export default function Header({
             to="/orders"
             onClick={closeNavbar}
             className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+              `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
+                isActive ? "bg-stone-200" : ""
+              }`
+            }
           >
             {" "}
             <ShoppingCart size={20} />
@@ -80,10 +92,10 @@ export default function Header({
             to="/products"
             onClick={closeNavbar}
             className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+              `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
+                isActive ? "bg-stone-200" : ""
+              }`
+            }
           >
             {" "}
             <Package size={20} />
@@ -93,10 +105,10 @@ export default function Header({
             to="/customers"
             onClick={closeNavbar}
             className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+              `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
+                isActive ? "bg-stone-200" : ""
+              }`
+            }
           >
             {" "}
             <Users size={20} />
@@ -106,28 +118,25 @@ export default function Header({
             to="/settings"
             onClick={closeNavbar}
             className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+              `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
+                isActive ? "bg-stone-200" : ""
+              }`
+            }
           >
             {" "}
             <Settings size={20} />
             Settings
           </NavLink>
-          <NavLink
-            to="/sign-in"
-            onClick={closeNavbar}
-            className={({ isActive }) =>
-            `flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300 ${
-              isActive ? "bg-stone-200" : ""
-            }`
-          }
+          <button
+            onClick={() => {
+              closeNavbar();
+              handleLogout();
+            }}
+            className="flex items-center gap-2 px-30 p-3 w-full text-center hover:bg-stone-300"
           >
-            {" "}
             <LogOut size={20} />
             Logout
-          </NavLink>
+          </button>
           <X onClick={closeNavbar} className="mb-4" />
         </nav>
       )}
