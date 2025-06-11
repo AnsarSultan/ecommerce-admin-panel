@@ -1,12 +1,17 @@
-# React + Vite
+# eCommerce Admin Panel (Frontend Practice)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and modern eCommerce admin panel built using **ReactJS** and **Tailwind CSS**. This project is purely frontend and uses dummy data to simulate real-world admin dashboard functionalities.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dashboard**: View product stats, fulfillment status, and top-selling items.
+- **Orders**: Browse orders with detailed view including address, products, and total price.
+- **Products**: Display list of products with edit and delete options.
+- **Customers**: Show customers who placed orders, including email, address, and join date.
+- **Settings**: Profile, store preferences, dark mode toggle, and notification settings.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- ReactJS
+- Tailwind CSS
+- Lucide Icons
