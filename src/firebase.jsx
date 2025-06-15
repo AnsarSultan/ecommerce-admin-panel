@@ -2,7 +2,7 @@
 
 // Import the functions you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"; // 👈 add this for authentication
+import { getAuth } from "firebase/auth"; 
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -14,8 +14,6 @@ const firebaseConfig = {
   measurementId: VITE_FIREBASE_measurementID
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firebase Auth
-export const auth = getAuth(app); // 👈 export this to use in your components
+export const auth = getAuth(app); 

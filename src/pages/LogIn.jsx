@@ -1,4 +1,3 @@
-// src/pages/Login.js
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
@@ -12,7 +11,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/"); // 👈 redirect to home
+      navigate("/"); 
     } catch (error) {
       alert(error.message);
     }
