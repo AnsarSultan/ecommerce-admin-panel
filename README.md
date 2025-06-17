@@ -1,17 +1,27 @@
-# eCommerce Admin Panel (Frontend Practice)
+# 🛒 eCommerce Admin Panel (Frontend Practice)
 
-A responsive and modern eCommerce admin panel built using **ReactJS** and **Tailwind CSS**. This project is purely frontend and uses dummy data to simulate real-world admin dashboard functionalities.
+A modern, responsive eCommerce admin dashboard built with **ReactJS** and **Tailwind CSS**, featuring **Firebase Authentication**. This frontend-only project uses dummy data to simulate real-world admin functionalities for practice and portfolio enhancement.
 
 ## 🚀 Features
 
-- **Dashboard**: View product stats, fulfillment status, and top-selling items.
-- **Orders**: Browse orders with detailed view including address, products, and total price.
-- **Products**: Display list of products with edit and delete options.
-- **Customers**: Show customers who placed orders, including email, address, and join date.
-- **Settings**: Profile, store preferences, dark mode toggle, and notification settings.
+- **Firebase Authentication**: Secure login system for admin access  
+- **Dashboard**: Product stats, fulfillment status, and top-selling items  
+- **Orders**: View detailed order info including address, products, and total price  
+- **Products**: Manage product listings with edit and delete options  
+- **Customers**: Display customer details like email, address, and join date  
+- **Settings**: Profile settings, store preferences, dark mode toggle, and notifications  
 
 ## 🛠️ Tech Stack
 
-- ReactJS
-- Tailwind CSS
-- Lucide Icons
+- **ReactJS**  
+- **Tailwind CSS**  
+- **Lucide Icons**  
+- **Firebase Authentication**
+
+## 📂 Installation
+
+```bash
+git clone https://github.com/your-username/ecommerce-admin-panel.git
+cd ecommerce-admin-panel
+npm install
+npm start
