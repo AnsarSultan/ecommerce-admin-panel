@@ -21,7 +21,7 @@ A modern, responsive eCommerce admin dashboard built with **ReactJS** and **Tail
 ## 📂 Installation
 
 ```bash
-git clone https://github.com/your-username/ecommerce-admin-panel.git
+git clone https://github.com/AnsarSultan/ecommerce-admin-panel
 cd ecommerce-admin-panel
 npm install
 npm start
